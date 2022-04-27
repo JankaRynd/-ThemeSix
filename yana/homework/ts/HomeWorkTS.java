@@ -12,31 +12,48 @@ public class HomeWorkTS {
         // Ниже вместо null надо написать реализацию,
         // написано так, чтобы просто компилировалось
 
-        // TODO: Массив вопросов (вместо null надо написать определение массива)
-        String[] questions = null;
+        String[] questions = {
+                "Когда Новый год?",
+                "Когда Пасха?",
+                "Когда птицы улетают в теплые края? ",
+                "Когда День Влюбленных?",
+                "Когда дети идут первый раз в школу?"
+        };
 
-        // TODO: Массив вариантов ответов
-        String[][] answerOptions = null;
 
-        // TODO: Массив правильных ответов
-        int[] correctAnswers = null;
+        String[][] answerOptions = {
+                {"Весна","Лето","Осень","Зима"},
+                {"Зима","Весна","Лето","Осень"},
+                {"Весна","Осень","Лето","Зима"},
+                {"Весна","Осень","Лето","Зима"},
+                {"Лето","Весна","Осень","Зима"}
+        };
+
+        int[] correctAnswers = {3,1,1,0,2};
+
 
         // Примечание - можете придумать как хранить всю информацию в одном массиве
 
         Scanner scanner = new Scanner(System.in);
-        // TODO: Цикл по всем вопросам - исправить, написать правильно
-        for(int i = 0; i < 0; i++) {
-            // TODO: Вывод вопроса на экран
 
-            // TODO: Вывод вариантов ответов на экран
-
+        for(int i = 0; i < questions.length; i++) {
+            System.out.println("Вопрос № "+ (i+1) + " " + questions[i]);
+            for (int a = 0; a < answerOptions[i].length; a++) {
+                System.out.println( ( a + 1 ) + ". " + answerOptions[i][a]);
+            }
             System.out.print("Ваш ответ: ");
-            //TODO: Считываем с консоли ответ пользователя
+            int result = scanner.nextInt();
 
-            //TODO: Проверяем ответ и выводим результат
-            // а также увеличиваем счетчики правильных и неправильных ответов
+            int correctResult = correctAnswers[i];
 
-            System.out.println();
+            if ( result == (correctResult + 1)) {
+                System.out.println("Ваш ответ верен!Умничка!Продолжай дальше!");
+                correctCount = correctCount + 1;
+            } else {
+                System.out.println("Ваш ответ не верен!!! Подумай еще!!!!");
+                wrongCount = wrongCount + 1;
+            }
+
         }
 
         //Выводим общий результат
