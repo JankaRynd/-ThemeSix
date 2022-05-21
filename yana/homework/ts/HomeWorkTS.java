@@ -6,28 +6,44 @@ import java.util.Scanner;
 
 public class HomeWorkTS {
     public static void main(String[] args) {
-        // Переменные для хранения количества правильных и неправильных ответов
-        int correctCount = 0, wrongCount = 0;
+        Question question1 = new Question();
+        question1.question = "Когда Новый год?";
+        question1.answers = new String[]{"Весна", "Лето", "Осень", "Зима"};
+        question1.correctAnswer = 3;
+        Question question2 = new Question();
+        question2.question = "Когда Пасха?";
+        question2.answers = new String[]{"Зима", "Весна", "Лето", "Осень"};
+        question2.correctAnswer = 1;
+        Question question3 = new Question();
+        question3.question = "Когда птицы улетают в теплые края?";
+        question3.answers = new String[]{"Весна", "Осень", "Лето", "Зима"};
+        question3.correctAnswer = 1;
+        Question question4 = new Question();
+        question4.question = "Когда День Влюбленных?";
+        question4.answers = new String[]{"Весна", "Осень", "Лето", "Зима"};
+        question4.correctAnswer = 3;
+        Question question5 = new Question();
+        question5.question = "Когда дети идут первый раз в школу?";
+        question5.answers = new String[]{"Лето", "Весна", "Осень", "Зима"};
+        question5.correctAnswer = 2;
 
-        // Ниже вместо null надо написать реализацию,
-        // написано так, чтобы просто компилировалось
-
-        String[][][] array = {
-                {{"Когда Новый год?"}, {"Весна","Лето","Осень","Зима"}, {"3"}},
-                {{"Когда Пасха?"}, {"Зима","Весна","Лето","Осень"}, {"1"}},
-                {{"Когда птицы улетают в теплые края?"}, {"Весна","Осень","Лето","Зима"}, {"1"}},
-                {{"Когда День Влюбленных?"}, {"Весна","Осень","Лето","Зима"}, {"3"}},
-                {{"Когда дети идут первый раз в школу?"}, {"Лето","Весна","Осень","Зима"}, {"2"}}
-        };
+        Quiz victorina = new Quiz();
+        victorina.questions = new Question[]{question1, question2, question3, question4, question5};
 
 
-        String[] array1 = {"test"};
-        String[] array2 = new String[array1.length +1];
-        for ( int n = 0; n < array2.length - 1; n++) {
-            array2[n] = array1[n];
-        }
-        array2[array2.length - 1] = "Новое значение";
-        System.out.println(array2.length);
+//        // Переменные для хранения количества правильных и неправильных ответов
+//        int correctCount = 0, wrongCount = 0;
+//
+//        // Ниже вместо null надо написать реализацию,
+//        // написано так, чтобы просто компилировалось
+//
+//        String[][][] array = {
+//                {{"Когда Новый год?"}, {"Весна","Лето","Осень","Зима"}, {"3"}},
+//                {{"Когда Пасха?"}, {"Зима","Весна","Лето","Осень"}, {"1"}},
+//                {{"Когда птицы улетают в теплые края?"}, {"Весна","Осень","Лето","Зима"}, {"1"}},
+//                {{"Когда День Влюбленных?"}, {"Весна","Осень","Лето","Зима"}, {"3"}},
+//                {{"Когда дети идут первый раз в школу?"}, {"Лето","Весна","Осень","Зима"}, {"2"}}
+//        };
 
 //        String[] questions = {
 //                "Когда Новый год?",
@@ -53,10 +69,10 @@ public class HomeWorkTS {
 
         Scanner scanner = new Scanner(System.in);
 
-        for(int i = 0; i < array.length; i++) {
-            System.out.println("Вопрос № "+ (i+1) + " " + array[i][0][0]);
-            for (int a = 0; a < array[i][1].length; a++) {
-                System.out.println( ( a + 1 ) + ". " + array[i][1][a]);
+        for(int i = 0; i < victorina.questions.length; i++) {
+            System.out.println("Вопрос № "+ (i+1) + " " + victorina.questions[i].question);
+            for (int a = 0; a < victorina.questions[i].answers.length; a++) {
+                System.out.println( ( a + 1 ) + ". " + victorina.questions[i].answers[a]);
             }
             System.out.print("Ваш ответ: ");
             int result = 10;
@@ -65,20 +81,20 @@ public class HomeWorkTS {
             } catch (Exception e) {
                 System.out.println("Формат ответа неправильный, Ожидаются цифры");
             }
-            int correctResult = Integer.parseInt(array[i][2][0]);
+            int correctResult = victorina.questions[i].correctAnswer;
 
             if ( result == (correctResult + 1)) {
                 System.out.println("Ваш ответ верен!Умничка!Продолжай дальше!");
-                correctCount = correctCount + 1;
+                victorina.correctCount = victorina.correctCount + 1;
             } else {
                 System.out.println("Ваш ответ не верен!!! Подумай еще!!!!");
-                wrongCount = wrongCount + 1;
+                victorina.wrongCount = victorina.wrongCount + 1;
             }
 
         }
 
         //Выводим общий результат
-        System.out.println("Результат: правильно " + correctCount + ", неправильно " + wrongCount);
+        System.out.println("Результат: правильно " + victorina.correctCount + ", неправильно " + victorina.wrongCount);
     }
 
 
