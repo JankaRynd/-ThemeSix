@@ -59,8 +59,12 @@ public class HomeWorkTS {
                 System.out.println( ( a + 1 ) + ". " + array[i][1][a]);
             }
             System.out.print("Ваш ответ: ");
-            int result = scanner.nextInt();
-
+            int result = 10;
+            try {
+                result = Integer.parseInt(scanner.next());
+            } catch (Exception e) {
+                System.out.println("Формат ответа неправильный, Ожидаются цифры");
+            }
             int correctResult = Integer.parseInt(array[i][2][0]);
 
             if ( result == (correctResult + 1)) {
