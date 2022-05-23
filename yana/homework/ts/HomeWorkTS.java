@@ -1,5 +1,8 @@
 package yana.homework.ts;
 
+import yana.homework.ts.objects.Question;
+import yana.homework.ts.objects.Quiz;
+
 import java.util.Scanner;
 
 
@@ -7,28 +10,28 @@ import java.util.Scanner;
 public class HomeWorkTS {
     public static void main(String[] args) {
         Question question1 = new Question();
-        question1.question = "Когда Новый год?";
-        question1.answers = new String[]{"Весна", "Лето", "Осень", "Зима"};
-        question1.correctAnswer = 3;
+        question1.setQuestion("Когда Новый год?");
+        question1.setAnswers(new String[]{"Весна", "Лето", "Осень", "Зима"});
+        question1.setCorrectAnswer(3);
         Question question2 = new Question();
-        question2.question = "Когда Пасха?";
-        question2.answers = new String[]{"Зима", "Весна", "Лето", "Осень"};
-        question2.correctAnswer = 1;
+        question2.setQuestion("Когда Пасха?");
+        question2.setAnswers(new String[]{"Зима", "Весна", "Лето", "Осень"});
+        question2.setCorrectAnswer(1);
         Question question3 = new Question();
-        question3.question = "Когда птицы улетают в теплые края?";
-        question3.answers = new String[]{"Весна", "Осень", "Лето", "Зима"};
-        question3.correctAnswer = 1;
+        question3.setQuestion("Когда птицы улетают в теплые края?");
+        question3.setAnswers(new String[]{"Весна", "Осень", "Лето", "Зима"});
+        question3.setCorrectAnswer(1);
         Question question4 = new Question();
-        question4.question = "Когда День Влюбленных?";
-        question4.answers = new String[]{"Весна", "Осень", "Лето", "Зима"};
-        question4.correctAnswer = 3;
+        question4.setQuestion("Когда День Влюбленных?");
+        question4.setAnswers(new String[]{"Весна", "Осень", "Лето", "Зима"});
+        question4.setCorrectAnswer(3);
         Question question5 = new Question();
-        question5.question = "Когда дети идут первый раз в школу?";
-        question5.answers = new String[]{"Лето", "Весна", "Осень", "Зима"};
-        question5.correctAnswer = 2;
+        question5.setQuestion("Когда дети идут первый раз в школу?");
+        question5.setAnswers(new String[]{"Лето", "Весна", "Осень", "Зима"});
+        question5.setCorrectAnswer(2);
 
         Quiz victorina = new Quiz();
-        victorina.questions = new Question[]{question1, question2, question3, question4, question5};
+        victorina.setQuestions(new Question[]{question1, question2, question3, question4, question5});
 
 
 //        // Переменные для хранения количества правильных и неправильных ответов
@@ -69,10 +72,10 @@ public class HomeWorkTS {
 
         Scanner scanner = new Scanner(System.in);
 
-        for(int i = 0; i < victorina.questions.length; i++) {
-            System.out.println("Вопрос № "+ (i+1) + " " + victorina.questions[i].question);
-            for (int a = 0; a < victorina.questions[i].answers.length; a++) {
-                System.out.println( ( a + 1 ) + ". " + victorina.questions[i].answers[a]);
+        for(int i = 0; i < victorina.getQuestions().length; i++) {
+            System.out.println("Вопрос № "+ (i+1) + " " + victorina.getQuestions()[i].getQuestion());
+            for (int a = 0; a < victorina.getQuestions()[i].getAnswers().length; a++) {
+                System.out.println( ( a + 1 ) + ". " + victorina.getQuestions()[i].getAnswers()[a]);
             }
             System.out.print("Ваш ответ: ");
             int result = 10;
@@ -81,20 +84,20 @@ public class HomeWorkTS {
             } catch (Exception e) {
                 System.out.println("Формат ответа неправильный, Ожидаются цифры");
             }
-            int correctResult = victorina.questions[i].correctAnswer;
+            int correctResult = victorina.getQuestions()[i].getCorrectAnswer();
 
             if ( result == (correctResult + 1)) {
                 System.out.println("Ваш ответ верен!Умничка!Продолжай дальше!");
-                victorina.correctCount = victorina.correctCount + 1;
+                victorina.setCorrectCount(victorina.getCorrectCount() + 1);
             } else {
                 System.out.println("Ваш ответ не верен!!! Подумай еще!!!!");
-                victorina.wrongCount = victorina.wrongCount + 1;
+                victorina.setWrongCount(victorina.getWrongCount() + 1);
             }
 
         }
 
         //Выводим общий результат
-        System.out.println("Результат: правильно " + victorina.correctCount + ", неправильно " + victorina.wrongCount);
+        System.out.println("Результат: правильно " + victorina.getCorrectCount() + ", неправильно " + victorina.getWrongCount());
     }
 
 
