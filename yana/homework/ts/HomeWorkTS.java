@@ -12,6 +12,7 @@ public class HomeWorkTS {
         Question question1 = new Question();
         question1.setQuestion("Когда Новый год?");
         question1.setAnswers(new String[]{"Весна", "Лето", "Осень", "Зима"});
+        question1.packosti();
         question1.setCorrectAnswer(3);
         Question question2 = new Question();
         question2.setQuestion("Когда Пасха?");
@@ -29,6 +30,7 @@ public class HomeWorkTS {
         question5.setQuestion("Когда дети идут первый раз в школу?");
         question5.setAnswers(new String[]{"Лето", "Весна", "Осень", "Зима"});
         question5.setCorrectAnswer(2);
+
 
         Quiz victorina = new Quiz();
         victorina.setQuestions(new Question[]{question1, question2, question3, question4, question5});

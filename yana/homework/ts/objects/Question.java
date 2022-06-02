@@ -28,4 +28,9 @@ public class Question {
     public void setCorrectAnswer(int correctAnswer) {
         this.correctAnswer = correctAnswer;
     }
+
+    public void packosti () {
+        System.out.println("Маленькая пакость ");
+
+    }
 }
